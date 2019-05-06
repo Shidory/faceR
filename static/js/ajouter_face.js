@@ -1,13 +1,17 @@
+var btnAjouter = document.getElementsByClassName('btn');
+
+console.log(btnAjouter.innerHTML);
+
 function ajouter_face(){
 
     var PythonShell = require("python-shell");
     var path = require("path");
-    var nom = document.getElementById("person").value
+    var nom = document.getElementById("personne").value
 
     var options ={
         
         pythonPath: 'usr/local/bin/python3',
-        scriptPath: path.join(__dirname, '../../controller')
+        scriptPath: path.join(__dirname, '../../controller'),
         args: ["cam", nom]
     }
 
