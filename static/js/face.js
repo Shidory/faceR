@@ -2,6 +2,7 @@ function ajouter_face(){
 
     var PythonShell = require("python-shell");
     var path = require("path");
+    var nom = document.getElementById(person).value
 
     var options ={
         
@@ -9,10 +10,11 @@ function ajouter_face(){
         scriptPath: path.join(__dirname, '../../controller')
     }
 
-    var face = new PythonShell("face.py", options);
-
-    face.end(function(err, code, message) {
-      swal("Face added!", "We can now recognize your face", "success")
-      document.getElementsById("add").innerHTML = "Add a new face";
-    })
+    PythonShell.PythonShell.run('face.py', options, function (err, results) {
+        if (err) throw err;
+        
+        console.log('results: %j', results);
+        //swal("Face ajouté!", "Nous pouvons maintenant reconnaître votre face", "Réussi")
+        document.getElementsById("add").innerHTML = "Nouvelle face ajoutée";
+    });
 }
