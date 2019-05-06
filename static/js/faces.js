@@ -1,25 +1,27 @@
-var btnAjouter = document.getElementsByClassName('btn');
-
-console.log(btnAjouter.innerHTML);
-
 function ajouter_face(){
-
-    var PythonShell = require("python-shell");
-    var path = require("path");
-    var nom = document.getElementById("personne").value
-
-    var options ={
-        
-        pythonPath: 'usr/local/bin/python3',
-        scriptPath: path.join(__dirname, '../../controller'),
-        args: ["cam", nom]
+    //import {PythonShell} from 'python-shell';
+    var PythonShell = require("python-shell")
+    
+    var path = require("path")
+    var name = document.getElementById("personne").value
+  
+      var options = {
+      scriptPath : path.join(__dirname, '/controller/'),
+      pythonPath : '/usr/local/bin/python3',
+      args : ["cam", name]
     }
-
-    PythonShell.PythonShell.run('face.py', options, function (err, results) {
-        if (err) throw err;
-        
-        console.log('results: %j', results);
-        //swal("Face ajouté!", "Nous pouvons maintenant reconnaître votre face", "Réussi")
-        document.getElementsById("ajouter").innerHTML = "Nouvelle face ajoutée";
+  
+    /*var face = new python("add_face.py", options);
+  
+    face.end(function(err, code, message) {
+      swal("Face added!", "We can now recognize your face", "success")
+      document.getElementsById("add").innerHTML = "Add a new face";
+    })*/
+    PythonShell.PythonShell.run('ajouter_face.py', options, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+      console.log('results: %j', results);
+      swal("Face added!", "We can now recognize your face", "success")
+      document.getElementsById("add").innerHTML = "Add a new face";
     });
-}
+  }
