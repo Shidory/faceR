@@ -1,5 +1,5 @@
 function ajouter_face(){
-    //import {PythonShell} from 'python-shell';
+
     var PythonShell = require("python-shell")
     
     var path = require("path")
