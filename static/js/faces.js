@@ -25,3 +25,8 @@ function ajouter_face(){
       document.getElementsById("add").innerHTML = "Add a new face";
     });
   }
+
+  function detecter_face() {
+
+  }
+  
