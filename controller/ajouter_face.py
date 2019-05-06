@@ -23,8 +23,8 @@ if image == "cam":
         if k == ord('a'):
             face_encoding = f.face_encodings(image_array)[0]
             with open("faces/" + nom, 'wb') as fp:
-                c.dump(face_encoding, fp)
+                pickl.dump(face_encoding, fp)
             break
     print ("Fait")
     cam.release()
-    cv2.destroyAllWindows()
+    cv.destroyAllWindows()

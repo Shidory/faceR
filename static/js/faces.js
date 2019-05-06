@@ -45,7 +45,7 @@ function ajouter_face(){
   
       PythonShell.PythonShell.run('detecter_face.py', options, function (err, results) {
         if (err) throw err;
-        document.getElementsById("detect").value = "Detect faces";
+        document.getElementsById("detect").value = "Detection des faces";
       });
   }
   
